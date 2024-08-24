@@ -12,8 +12,16 @@ export abstract class Hook<T extends any[] = any[]> {
     });
   }
 
-  abstract call(...args: T): any;
-  abstract callAsync(...args: T): Promise<any>;
+  call(...args: T) {
+    return this._call(...args);
+  }
+
+  abstract _call(...args: T): any;
+
+  callAsync(...args: T): Promise<any> {
+    return this._callAsync(...args);
+  }
+  abstract _callAsync(...args: T): Promise<any>;
 }
 
 export default Hook;

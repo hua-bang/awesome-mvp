@@ -1,11 +1,11 @@
 import Hook from "./hook";
 
 export class AsyncParallelBailHook<T extends any[] = []> extends Hook<T> {
-  call(...args: T) {
+  _call(...args: T) {
     throw new Error("AsyncSeriesHook.call is not implemented");
   }
 
-  async callAsync(...args: T): Promise<void> {
+  async _callAsync(...args: T): Promise<void> {
     return new Promise<void>(async (resolve, reject) => {
       const promises = this.taps.map(async (tap) => {
         try {

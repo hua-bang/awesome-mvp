@@ -1,11 +1,11 @@
 import Hook from "./hook";
 
 export class AsyncSeriesBailHook<T extends any[] = []> extends Hook<T> {
-  call(...args: T) {
+  _call(...args: T) {
     throw new Error("AsyncSeriesBailHook.call is not implemented");
   }
 
-  async callAsync(...args: T): Promise<void> {
+  async _callAsync(...args: T): Promise<void> {
     return new Promise<void>(async (resolve, reject) => {
       for (let i = 0; i < this.taps.length; i++) {
         try {

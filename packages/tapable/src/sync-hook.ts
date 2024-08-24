@@ -1,13 +1,13 @@
 import Hook from "./hook";
 
 export class SyncHook<T extends any[] = any[]> extends Hook<T> {
-  call(...args: T): void {
+  _call(...args: T): void {
     this.taps.forEach((tap) => {
       tap.callback(...args);
     });
   }
 
-  callAsync(...args: T): Promise<void> {
+  _callAsync(...args: T): Promise<void> {
     throw new Error("SyncHook.callAsync is not implemented");
   }
 }
