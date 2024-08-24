@@ -1,5 +1,3 @@
-export const add = (a: number, b: number) => {
-  return a + b;
-};
+import { SyncHook } from "./sync-hook";
 
-console.log("add", add(1, 2));
+export { SyncHook };
