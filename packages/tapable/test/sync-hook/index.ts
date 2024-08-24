@@ -1,13 +1,13 @@
 import { SyncHook } from "../../src/index";
 
-const hook = new SyncHook(["name"]);
+const hook = new SyncHook(["arg1"]);
 
-hook.tap("tap1", (name) => {
-  console.log("tap1", name);
+hook.tap("event1", (...args) => {
+  console.log("event1", ...args);
 });
 
-hook.tap("tap2", (name) => {
-  console.log("tap2", name);
+hook.tap("event2", (...args) => {
+  console.log("event2", ...args);
 });
 
-hook.call("华铧");
+hook.call("hua hua");
