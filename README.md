@@ -2,7 +2,7 @@
 This is a repository about implementing the mvp version of the popular library.
 
 ## library list
-- [-] Tapable
+- [x] Tapable
 - [ ] Micro Frontend
 - [ ] React
 - [ ] Webpack
