@@ -1,0 +1,23 @@
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  packages/tapable:
+    dependencies:
+      typescript:
+        specifier: ^5.5.4
+        version: registry.npmmirror.com/typescript@5.5.4
+
+packages:
+
+  registry.npmmirror.com/typescript@5.5.4:
+    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/typescript/-/typescript-5.5.4.tgz}
+    name: typescript
+    version: 5.5.4
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: false
