@@ -1,4 +1,4 @@
-export type TapCallback<T extends any[] = any[]> = (...args: T) => void;
+export type TapCallback<T extends any[] = any[]> = (...args: T) => any;
 
 export interface Tap<T extends any[] = any[]> {
   name?: string;
