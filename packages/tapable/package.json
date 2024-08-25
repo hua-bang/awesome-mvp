@@ -1,6 +1,6 @@
 {
-  "name": "@awesome-mvp/tapable",
-  "version": "0.0.1",
+  "name": "awesome_mvp_tapable",
+  "version": "0.0.1-beta.0",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -10,7 +10,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
     "typescript": "^5.5.4"
   }
 }
