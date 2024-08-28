@@ -1,10 +1,23 @@
-lockfileVersion: '6.1'
+lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
 importers:
+
+  packages/express:
+    dependencies:
+      awesome_mvp_tapable:
+        specifier: 0.0.1-beta.0
+        version: 0.0.1-beta.0
+    devDependencies:
+      '@types/node':
+        specifier: ^22.5.1
+        version: 22.5.1
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
 
   packages/tapable:
     devDependencies:
@@ -14,8 +27,30 @@ importers:
 
 packages:
 
-  /typescript@5.5.4:
+  '@types/node@22.5.1':
+    resolution: {integrity: sha512-KkHsxej0j9IW1KKOOAA/XBA0z08UFSrRQHErzEfA3Vgq57eXIMYboIlHJuYIfd+lwCQjtKqUu3UnmKbtUc9yRw==}
+
+  awesome_mvp_tapable@0.0.1-beta.0:
+    resolution: {integrity: sha512-+h0DFNOwQ8/hzOUrTbRNCf4TRiAQryHNYbiBOwrM+JP4ZHkw4nerV1Ftw8txhhyca6AoK4TKivDY1i6KFKo9ZA==}
+
+  typescript@5.5.4:
     resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
+
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+
+snapshots:
+
+  '@types/node@22.5.1':
+    dependencies:
+      undici-types: 6.19.8
+
+  awesome_mvp_tapable@0.0.1-beta.0:
+    dependencies:
+      typescript: 5.5.4
+
+  typescript@5.5.4: {}
+
+  undici-types@6.19.8: {}
