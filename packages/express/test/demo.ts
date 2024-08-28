@@ -2,6 +2,12 @@ import { express } from '../src/index';
 
 const app = express();
 
+app.lifeCycle.listened.tap('event', (port) => {
+  console.log(`
+    Http Server is start on ${port}
+  `);
+});
+
 app.get('/user/name', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify({

@@ -2,10 +2,12 @@ import http from 'http';
 import Router from './router';
 import { Handler, HttpMethod } from './typings';
 import { defaultHandler } from './default-handler';
+import Lifecycle from './lifecycle';
 
 class Application {
   private httpServer: http.Server | null = null;
   private router: Router = new Router();
+  lifeCycle: Lifecycle = new Lifecycle();
 
   handle(
     req: http.IncomingMessage, 
@@ -22,7 +24,9 @@ class Application {
     this.httpServer = http.createServer((req, res) => {
       appInstance.handle.call(appInstance, req, res);
     });
-    this.httpServer.listen(port);
+    this.httpServer.listen(port, () => {
+      this.lifeCycle.listened.call(port);
+    });
   }
 
   get(path: string, handler: Handler) {
