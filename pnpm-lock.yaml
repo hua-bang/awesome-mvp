@@ -9,8 +9,8 @@ importers:
   packages/express:
     dependencies:
       awesome_mvp_tapable:
-        specifier: 0.0.1-beta.0
-        version: 0.0.1-beta.0
+        specifier: 0.0.1-beta.2
+        version: 0.0.1-beta.2
     devDependencies:
       '@types/node':
         specifier: ^22.5.1
@@ -30,8 +30,8 @@ packages:
   '@types/node@22.5.1':
     resolution: {integrity: sha512-KkHsxej0j9IW1KKOOAA/XBA0z08UFSrRQHErzEfA3Vgq57eXIMYboIlHJuYIfd+lwCQjtKqUu3UnmKbtUc9yRw==}
 
-  awesome_mvp_tapable@0.0.1-beta.0:
-    resolution: {integrity: sha512-+h0DFNOwQ8/hzOUrTbRNCf4TRiAQryHNYbiBOwrM+JP4ZHkw4nerV1Ftw8txhhyca6AoK4TKivDY1i6KFKo9ZA==}
+  awesome_mvp_tapable@0.0.1-beta.2:
+    resolution: {integrity: sha512-Rm2HBg5HCb8TQrNBEqzJKWSIRvqYUaGPxjSpZYqCxzQInCwkoqdVnEIYbsE995R630zY/kfe/5GPs+e6klfzNg==}
 
   typescript@5.5.4:
     resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
@@ -47,9 +47,7 @@ snapshots:
     dependencies:
       undici-types: 6.19.8
 
-  awesome_mvp_tapable@0.0.1-beta.0:
-    dependencies:
-      typescript: 5.5.4
+  awesome_mvp_tapable@0.0.1-beta.2: {}
 
   typescript@5.5.4: {}
 
