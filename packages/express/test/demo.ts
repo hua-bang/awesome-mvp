@@ -8,6 +8,18 @@ app.lifeCycle.listened.tap('event', (port) => {
   `);
 });
 
+app.use((req, res, next) => {
+  console.log('log1 start');
+  next();
+  console.log('log1 end');
+});
+
+app.use((req, res, next) => {
+  console.log('log2 start');
+  next();
+  console.log('log2 end');
+});
+
 app.get('/user/name', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify({

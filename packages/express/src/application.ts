@@ -1,8 +1,8 @@
 import http from 'http';
 import Router from './router';
 import { Handler, HttpMethod } from './typings';
-import { defaultHandler } from './default-handler';
 import Lifecycle from './lifecycle';
+import { MiddlewareHandler } from './typings/middleware';
 
 class Application {
   private httpServer: http.Server | null = null;
@@ -15,8 +15,11 @@ class Application {
       req: http.IncomingMessage;
     }
   ){
-    const handler = this.router.getHandler(req, res) || defaultHandler;
-    handler.call(this, req, res);
+    this.router.handle(req, res);
+  }
+
+  use(middleware: MiddlewareHandler) {
+    this.router.useMiddleware(middleware);
   }
 
   listen(port: number) {

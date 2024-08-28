@@ -1,4 +1,4 @@
-import { Handler } from "./typings";
+import { Handler } from "../typings";
 
 export function defaultHandler(...args: Parameters<Handler>) {
   const [req, res] = args;
