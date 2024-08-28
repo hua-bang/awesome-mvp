@@ -1,10 +1,16 @@
-lockfileVersion: '6.1'
+lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
 importers:
+
+  packages/express:
+    devDependencies:
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
 
   packages/tapable:
     devDependencies:
@@ -14,8 +20,11 @@ importers:
 
 packages:
 
-  /typescript@5.5.4:
+  typescript@5.5.4:
     resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
+
+snapshots:
+
+  typescript@5.5.4: {}
