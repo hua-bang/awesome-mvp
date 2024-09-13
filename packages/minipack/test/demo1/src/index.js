@@ -1,3 +1,4 @@
 import { add } from "./add.js";
 
-add(1, 2);
+const res = add(1, 2);
+console.log("res", res);
