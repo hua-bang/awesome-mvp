@@ -1,1 +1,2 @@
-const add = (a: string, b: string) => a + b;
+export * from "./core";
+export * from "./typings";
