@@ -2,7 +2,7 @@ import { Loader } from "../loader";
 
 interface MinipackConfigModuleRule {
   test: RegExp;
-  use: Loader;
+  use: Loader | Loader[];
 }
 
 interface MinipackConfigModule {

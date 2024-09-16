@@ -17,8 +17,12 @@ const getFileTransformedCode = (
 
   for (let i = 0; i < rules.length; i++) {
     const { test, use } = rules[i];
+    const loaders = Array.isArray(use) ? use : [use];
     if (test.test(module.filepath)) {
-      return use(module.fileContent, module.filepath);
+      return loaders.reduceRight(
+        (prevResult, loader) => loader(prevResult, module.filepath),
+        module.fileContent
+      );
     }
   }
 
