@@ -5,7 +5,10 @@ import { getFileMeta } from "./get-file-meta";
 
 const getFileContent = (filepath: string) => fs.readFileSync(filepath, "utf-8");
 
-export const createModule = (filepath: string): Module => {
+export const createModule = (
+  filepath: string,
+  minipackConfig: MinipackConfig
+): Module => {
   const fileContent = getFileContent(filepath);
 
   let module: Module = {
@@ -17,7 +20,7 @@ export const createModule = (filepath: string): Module => {
     mapping: {},
   };
 
-  const { code, dependencies, mapping } = getFileMeta(module);
+  const { code, dependencies, mapping } = getFileMeta(module, minipackConfig);
 
   module = {
     ...module,
@@ -36,7 +39,7 @@ export const createModuleGraph = (
   const moduleGraph: ModuleGraph = {};
 
   const { entry } = minipackConfig;
-  const entryModule = createModule(entry);
+  const entryModule = createModule(entry, minipackConfig);
 
   const explore = (module: Module) => {
     // 如果已经解析过了，就没有必要再构建了
@@ -48,7 +51,7 @@ export const createModuleGraph = (
 
     module.dependencies.forEach((dependencyPath) => {
       const dependency = module.mapping[dependencyPath];
-      const dependencyModule = createModule(dependency);
+      const dependencyModule = createModule(dependency, minipackConfig);
       explore(dependencyModule);
     });
   };
