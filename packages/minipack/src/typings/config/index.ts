@@ -1,6 +1,8 @@
+import { Loader } from "../loader";
+
 interface MinipackConfigModuleRule {
   test: RegExp;
-  use: (sourceCode: string) => string;
+  use: Loader;
 }
 
 interface MinipackConfigModule {

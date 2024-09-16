@@ -18,7 +18,7 @@ const getFileTransformedCode = (
   for (let i = 0; i < rules.length; i++) {
     const { test, use } = rules[i];
     if (test.test(module.filepath)) {
-      return use(module.fileContent);
+      return use(module.fileContent, module.filepath);
     }
   }
 
