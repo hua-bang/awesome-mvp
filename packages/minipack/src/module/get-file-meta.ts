@@ -2,7 +2,7 @@ import path from "path";
 import { Module } from "../typings/module";
 import * as babel from "@babel/core";
 
-export const compiler = (
+export const getFileMeta = (
   module: Omit<Module, "dependencies" | "mapping" | "code">
 ): Pick<Module, "dependencies" | "mapping" | "code"> => {
   const dependencies: Module["dependencies"] = [];

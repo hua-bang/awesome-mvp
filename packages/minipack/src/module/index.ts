@@ -1,7 +1,7 @@
 import fs from "fs";
 import { Module, ModuleGraph } from "../typings/module";
 import { MinipackConfig } from "../typings";
-import { compiler } from "./compiler";
+import { getFileMeta } from "./get-file-meta";
 
 const getFileContent = (filepath: string) => fs.readFileSync(filepath, "utf-8");
 
@@ -17,7 +17,7 @@ export const createModule = (filepath: string): Module => {
     mapping: {},
   };
 
-  const { code, dependencies, mapping } = compiler(module);
+  const { code, dependencies, mapping } = getFileMeta(module);
 
   module = {
     ...module,
