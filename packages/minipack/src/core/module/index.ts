@@ -1,6 +1,6 @@
 import fs from "fs";
-import { Module, ModuleGraph } from "../typings/module";
-import { MinipackConfig } from "../typings";
+import { Module, ModuleGraph } from "../../typings/module";
+import { MinipackConfig } from "../../typings";
 import { getFileMeta } from "./get-file-meta";
 
 const getFileContent = (filepath: string) => fs.readFileSync(filepath, "utf-8");

@@ -1,4 +1,4 @@
-import { ModuleGraph } from "../typings/module";
+import { ModuleGraph } from "../../typings/module";
 
 export const bundle = (moduleGraph: ModuleGraph) => {
   let modules = "";

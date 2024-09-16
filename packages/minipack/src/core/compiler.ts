@@ -1,6 +1,6 @@
 import fs from "fs";
-import { createModuleGraph } from "../module";
-import { bundle } from "../bundle";
+import { createModuleGraph } from "./module";
+import { bundle } from "./bundle";
 import { MinipackConfig } from "../typings";
 
 class MinipackCompiler {
