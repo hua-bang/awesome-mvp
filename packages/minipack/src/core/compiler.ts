@@ -1,9 +1,9 @@
-import { bundle } from "./bundle";
-import { createModuleGraph } from "./module";
-import { MinipackConfig } from "./typings";
 import fs from "fs";
+import { createModuleGraph } from "../module";
+import { bundle } from "../bundle";
+import { MinipackConfig } from "../typings";
 
-class Minipack {
+class MinipackCompiler {
   constructor(private minipackConfig: MinipackConfig) {}
 
   compile() {
@@ -14,7 +14,4 @@ class Minipack {
   }
 }
 
-export const build = (minipackConfig: MinipackConfig) => {
-  const minipack = new Minipack(minipackConfig);
-  minipack.compile();
-};
+export { MinipackCompiler };
