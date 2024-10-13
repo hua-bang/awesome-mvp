@@ -19,6 +19,18 @@ const config: MinipackConfig = {
       },
     ],
   },
+  plugins: [
+    {
+      apply(compiler) {
+        compiler.hooks.config.tap('logConfig', (config: any) => {
+          console.log('config', config);
+        });
+        compiler.hooks.emit.tap('logConfig', (moduleGraph: any) => {
+          console.log('moduleGraph', moduleGraph);
+        });
+      },
+    }
+  ],
 };
 
 export default config;

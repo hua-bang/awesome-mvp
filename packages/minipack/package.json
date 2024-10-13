@@ -17,6 +17,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.25.4"
+    "@babel/preset-env": "^7.25.4",
+    "awesome_mvp_tapable": "workspace:0.0.1-beta.2"
   }
 }
