@@ -3,7 +3,7 @@ import type { ModuleFederationOptions } from './typings/module';
 
 export class ModuleFederation {
   options: ModuleFederationOptions | null = null;
-  remoteHandler: RemoteHandler = new RemoteHandler();
+  remoteHandler: RemoteHandler = new RemoteHandler(this);
 
   init(options: ModuleFederationOptions) {
     this.options = options;
