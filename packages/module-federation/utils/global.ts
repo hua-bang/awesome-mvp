@@ -1,0 +1,1 @@
+export const global: Record<string, any> = typeof window !== 'undefined' ? window : globalThis;
