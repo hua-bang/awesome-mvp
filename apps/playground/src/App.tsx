@@ -2,6 +2,23 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import mfInstance from './mf-runtime';
+
+
+mfInstance.loadRemote('mf_provider_demo').then(result => {
+  if (result) {
+    console.log('Remote module loaded:', result);
+  }
+
+  if (result.add) {
+    console.log('Add result:', result.add(1, 2));
+  }
+
+  if (result.sub) {
+    console.log('Subtract result:', result.sub(1, 2));
+  }
+});
+
 
 function App() {
   const [count, setCount] = useState(0)
