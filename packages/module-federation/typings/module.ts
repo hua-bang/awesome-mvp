@@ -8,7 +8,10 @@ export interface ModuleOptions {
   metaData: Record<string, any>;
 }
 
+export type SharedDependencies = Record<string, { lib: () => any; }>;
+
 export interface ModuleFederationOptions {
   name: string;
   remotes?: Remotes;
+  shared?: SharedDependencies;
 }

@@ -1,10 +1,10 @@
-import type { ModuleOptions } from "./typings";
+import type { ModuleOptions, SharedDependencies } from "./typings";
 import { global } from "./utils/global";
 import { loadScript } from "./utils/load-script";
 
 interface RemoteEntryExport {
   get: (id: string) => Promise<any>;
-  init: (...args: any[]) => void;
+  init: (...args: any[]) => Promise<void>;
 }
 
 export class Module {
@@ -32,16 +32,34 @@ export class Module {
   }
 
   async get(id: string) {
-    if (!this.remoteEntryExport) {
-      await this.getEntry();
+    let remoteEntryExport = this.remoteEntryExport;
+
+    if (!remoteEntryExport) {
+      remoteEntryExport = await this.getEntry();
     }
 
-    if (!this.remoteEntryExport) {
-      throw new Error(`Remote entry export not found`);
-    }
-
-    const moduleFactory = await this.remoteEntryExport.get(id);
+    const moduleFactory = await remoteEntryExport.get(id);
     return typeof moduleFactory === 'function' ? moduleFactory() : moduleFactory;
+  }
+
+  async init(shared: SharedDependencies) {
+    let remoteEntryExport = this.remoteEntryExport;
+
+    if (!remoteEntryExport) {
+      remoteEntryExport = await this.getEntry();
+    }
+
+    const sharedConfig: Record<string, any> = {};
+
+    for (const key in shared) {
+      const lib = shared[key]?.lib;
+
+      if (lib) {
+        sharedConfig[key] = lib();
+      }
+    }
+
+    await remoteEntryExport.init(sharedConfig);
   }
 }
 
