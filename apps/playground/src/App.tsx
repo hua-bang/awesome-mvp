@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -20,6 +20,15 @@ mfInstance.loadRemote('mf_provider_demo').then(result => {
 });
 
 
+const ButtonComponent = React.lazy(async () => {
+  const res = await mfInstance.loadRemote('mf_provider_demo');
+  const Button = res.Button;
+  return Promise.resolve({ default: Button });
+});
+
+console.log('ButtonComponent:', ButtonComponent);
+
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -33,7 +42,16 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <React.Suspense fallback={<div>Loading Button...</div>}>
+        <ButtonComponent>
+          <span onClick={() => {
+            console.log('Button clicked!');
+            setCount(count + 1);
+          }}>Click Me!{count}</span>
+        </ButtonComponent>
+      </React.Suspense>
       <h1>Vite + React</h1>
+      <button>test</button>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
